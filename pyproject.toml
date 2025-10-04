@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "echoed"
+description = "Real-time ASR server based on Sherpa ONNX"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { file = "LICENSE" }
+dynamic = ["version", "dependencies"]
+authors = [
+    { name = "Victor Martins", email = "victor.martins.dpaula@gmail.com" },
+]
+maintainers = [
+    { name = "Victor Martins", email = "victor.martins.dpaula@gmail.com" },
+]
+keywords = ["python", "package"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+[project.urls]
+Repository = "https://github.com/victormpa/echoed"
+# Homepage = "https://github.com/yourusername/my-awesome-package"
+# Documentation = "https://my-awesome-package.readthedocs.io/"
+# Issues = "https://github.com/yourusername/my-awesome-package/issues"
+
+
+[project.scripts]
+echoed = "lib.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.4.2", "flake8", "black"]
+
+[tool.setuptools]
+packages = ["lib"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = "requirements.txt" }
+version = { attr = "lib.__version__" }
+
+[tool.black]
+line-length = 88
+target-version = ['py313']
