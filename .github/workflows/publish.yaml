@@ -41,11 +41,7 @@ jobs:
     needs:
       - build
     runs-on: ubuntu-latest
-
-    environment:
-      name: pypi
-      url: https://pypi.org/p/echoed
-
+    environment: pypi
     permissions:
       id-token: write
 
